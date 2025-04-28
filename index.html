@@ -52,20 +52,6 @@
     </script>
 
     <style>
-        /* Custom check untuk overflow */
-        @media (min-width: 1024px) {
-            .nav-overflow {
-                display: none !important;
-            }
-        }
-
-        #mobile-menu-button {
-            z-index: 9999;
-            position: relative;
-            pointer-events: auto !important;
-            cursor: pointer !important;
-        }
-
         html {
             scroll-behavior: smooth;
         }
@@ -85,21 +71,20 @@
 </head>
 
 <body class="font-sans bg-neutral-50 text-neutral-900">
-    <!-- Navigation Bar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md py-4 shadow-md"
-        id="main-nav">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md py-4 shadow-md">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <div class="flex-shrink-0">
+                <div class="w-1/4 flex-shrink-0">
                     <a href="#" class="flex items-center">
                         <img src="./src/assets/img/logolandscape.png" alt="Logo NetServe" class="h-8 md:h-10">
                     </a>
                 </div>
 
-                <!-- Desktop Navigation Bar -->
-                <div class="hidden lg:flex flex-1 justify-center items-center" id="desktop-nav">
-                    <div class="flex space-x-4 xl:space-x-8 font-semibold text-lg">
+                <!-- Center Navigation -->
+                <div class="hidden md:flex justify-center w-2/4">
+                    <div class="flex space-x-8 font-semibold text-lg">
                         <a href="#plans" class="text-gray-700 hover:text-netserve-1 transition">Paket</a>
                         <a href="#features" class="text-gray-700 hover:text-netserve-1 transition">Fitur</a>
                         <a href="#coverage" class="text-gray-700 hover:text-netserve-1 transition">Cakupan Area</a>
@@ -108,8 +93,8 @@
                     </div>
                 </div>
 
-                <!-- Right Side (Desktop) -->
-                <div class="hidden lg:flex items-center space-x-6" id="desktop-cta">
+                <!-- Right Side - Contact & CTA -->
+                <div class="hidden md:flex w-1/4 justify-end items-center space-x-6">
                     <div class="flex items-center text-netserve-1">
                         <i data-lucide="phone" class="w-5 h-5 mr-2"></i>
                         <span class="font-medium">0813-1500-9695</span>
@@ -121,13 +106,15 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="lg:hidden p-2 rounded-md focus:outline-none">
-                    <i data-lucide="menu" class="w-8 h-8 text-netserve-1"></i>
-                </button>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="p-2 rounded-md focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8 text-netserve-1"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden absolute left-0 right-0 top-full bg-white shadow-lg">
+            <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full bg-white shadow-lg">
                 <div class="px-6 pb-4 space-y-2">
                     <a href="#plans" class="block px-3 py-2 text-gray-700 hover:text-netserve-1">Paket</a>
                     <a href="#features" class="block px-3 py-2 text-gray-700 hover:text-netserve-1">Fitur</a>
@@ -1026,51 +1013,33 @@
             // Initialize Lucide icons
             lucide.createIcons();
 
-            // Mobile menu elements
+            // Mobile menu toggle
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const desktopNav = document.querySelector('.hidden.md\\:flex.justify-center'); // Desktop navigation
-            const desktopCta = document.querySelector('.hidden.md\\:flex.w-1\\/4'); // Desktop CTA
 
-            // Function to check if content overflows
-            function checkNavOverflow() {
-                if (window.innerWidth >= 768) { // Only check on desktop
-                    const nav = document.querySelector('nav');
-                    const navWidth = nav.offsetWidth;
-                    const navContentWidth =
-                        document.querySelector('.w-1\\/4.flex-shrink-0').offsetWidth + // Logo
-                        desktopNav.offsetWidth + // Navigation items
-                        desktopCta.offsetWidth + 100; // CTA + margin
+            // Coverage form submission
+            const coverageForm = document.getElementById('coverage-form');
+            const addressInput = document.getElementById('address-input');
 
-                    if (navContentWidth > navWidth) {
-                        // Switch to mobile mode
-                        desktopNav.classList.add('hidden');
-                        desktopCta.classList.add('hidden');
-                        menuButton.classList.remove('md:hidden');
-                    } else {
-                        // Normal desktop mode
-                        desktopNav.classList.remove('hidden');
-                        desktopCta.classList.remove('hidden');
-                        menuButton.classList.add('md:hidden');
-                    }
-                }
-            }
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
 
-            // Run on load and resize
-            checkNavOverflow();
-            window.addEventListener('resize', checkNavOverflow);
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // Mobile menu toggle
             menuButton.addEventListener('click', function () {
                 const isOpen = mobileMenu.classList.contains('hidden');
-                mobileMenu.classList.toggle('hidden');
-                this.innerHTML = isOpen
-                    ? '<i data-lucide="x"></i>'
-                    : '<i data-lucide="menu"></i>';
-                lucide.createIcons();
+                if (isOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    this.innerHTML = '<i data-lucide="x"></i>';
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    this.innerHTML = '<i data-lucide="menu"></i>';
+                }
+                lucide.createIcons(); // Refresh icons after change
             });
 
-            // Keep your existing scroll effect
+            // Scroll effect
             const nav = document.querySelector('nav');
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 10) {
@@ -1082,7 +1051,6 @@
                 }
             });
 
-            // Toggle Coverage Form Submission
             coverageForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const address = addressInput.value.trim();
@@ -1090,13 +1058,12 @@
                 if (address) {
                     console.log('Memeriksa cakupan untuk alamat:', address);
                     // Dalam implementasi nyata, Anda akan memanggil API di sini
-                    alert('Pemeriksaan cakupan untuk: ' + address + '\n\nIni biasanya akan memeriksa cakupan dengan API. Untuk demo ini, kami hanya menampilkan pesan ini.');
+                    alert('Pemeriksaan cakupan untuk: ' + address + '\n\nINI ADALAH DEMO.');
                 } else {
                     alert('Silakan masukkan alamat Anda untuk memeriksa cakupan.');
                 }
             });
 
-            // Toggle Contact Us Form Submission
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
@@ -1108,7 +1075,8 @@
                 };
 
                 console.log('Formulir dikirim:', formData);
-                alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.\n\n(Data formulir dicatat ke konsol)');
+                // Dalam implementasi nyata, Anda akan mengirim data ini ke backend Anda
+                alert('Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.\n\n(Data formulir telah dicatat)');
 
                 // Reset formulir
                 contactForm.reset();
@@ -1116,7 +1084,7 @@
 
         });
     </script>
-
+    
 </body>
 
 </html>
