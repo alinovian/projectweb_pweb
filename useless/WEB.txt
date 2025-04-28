@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NetServe HomeLink</title>
+
+    <link rel="icon" href="./src/assets/img/Logo NetServe HomeLink.jpg" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        'netserve': {
+                            1: '#004AAD',
+                            2: '#0CC1E0',
+                            3: '#3A43BA',
+                            4: '#38bdf8',
+                            5: '#0ea5e9',
+                            6: '#0284c7',
+                            7: '#0369a1',
+                            8: '#075985',
+                            9: '#000000',
+                        },
+                        neutral: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            600: '#525252'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-neutral-50 text-neutral-900">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 bg-white shadow-md z-50">
+        <div class="container mx-auto flex items-center justify-between p-4 md:p-6">
+            <a href="#">
+                <img src="./src/assets/img/logolandscape.png" alt="NetServe Logo" class="h-10">
+            </a>
+            <div class="hidden md:flex items-center space-x-8 font-semibold text-lg">
+                <a href="#plans" class="hover:text-netserve-1">Plans</a>
+                <a href="#features" class="hover:text-netserve-1">Features</a>
+                <a href="#coverage" class="hover:text-netserve-1">Coverage</a>
+                <a href="#contact" class="hover:text-netserve-1">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <i data-lucide="menu" class="w-8 h-8 text-netserve-1"></i>
+                </button>
+            </div>
+            <div class="hidden md:block">
+                <button
+                    class="bg-netserve-1 hover:bg-netserve-5 text-white font-semibold text-lg px-6 py-2 rounded-lg transition">
+                    Get Started
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-4">
+            <a href="#plans" class="block hover:text-netserve-1">Plans</a>
+            <a href="#features" class="block hover:text-netserve-1">Features</a>
+            <a href="#coverage" class="block hover:text-netserve-1">Coverage</a>
+            <a href="#contact" class="block hover:text-netserve-1">Contact</a>
+            <button class="w-full bg-netserve-1 hover:bg-netserve-5 text-white py-2 rounded-lg transition">
+                Get Started
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="flex items-center min-h-[80vh]">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <div
+                    class="inline-block bg-netserve-1/10 text-netserve-1 px-4 py-2 rounded-full mb-4 font-medium text-xs uppercase tracking-wider">
+                    #1 Rated Internet Provider
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    <span class="text-netserve-1">Lightning-Fast</span> Internet <br> For Your Home
+                </h1>
+                <p class="text-sm md:text-lg text-neutral-600 mb-8 max-w-xl mx-auto md:mx-0">
+                    Blazing speeds up to 1Gbps with our advanced fiber-optic network. Perfect for streaming, gaming, and
+                    working.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                    <button class="bg-netserve-1 hover:bg-netserve-5 text-white px-6 py-3 rounded-lg font-semibold">
+                        Check Availability
+                    </button>
+                    <button class="border border-neutral-300 hover:bg-neutral-100 px-6 py-3 rounded-lg font-semibold">
+                        View Plans
+                    </button>
+                </div>
+
+                <!-- Garis horizontal -->
+                <hr class="my-7 border-gray-300">
+
+                <!-- Features Section -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start space-x-2">
+                        <i data-lucide="check-circle" class="text-green-500 w-6 h-6"></i>
+                        <span class="text-neutral-600 font-medium">No contracts</span>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start space-x-2">
+                        <i data-lucide="check-circle" class="text-green-500 w-6 h-6"></i>
+                        <span class="text-neutral-600 font-medium">Free installation</span>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start space-x-2">
+                        <i data-lucide="check-circle" class="text-green-500 w-6 h-6"></i>
+                        <span class="text-neutral-600 font-medium">24/7 support</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative hidden md:block animate-float">
+                <div class="absolute inset-0 bg-netserve-1/10 rounded-full blur-3xl"></div>
+                <i data-lucide="wifi" class="relative text-netserve-1 w-[450px] h-[450px] mx-auto"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Internet Plans</h2>
+                <p class="text-neutral-600 max-w-2xl mx-auto">Choose the perfect plan for your needs</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-200 hover:shadow-xl transition">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Basic</h3>
+                        <p class="text-neutral-600 mb-6">Perfect for light browsing and email</p>
+                        <div class="flex items-end mb-6">
+                            <span class="text-4xl font-bold">$29</span>
+                            <span class="text-neutral-600 ml-1">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>50 Mbps download</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>10 Mbps upload</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>No data caps</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-netserve-1 hover:bg-netserve-5 text-white py-3 rounded-lg font-semibold transition">
+                            Select Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Popular Plan -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-netserve-1 transform scale-105 hover:shadow-xl transition">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-2xl font-bold mb-2">Plus</h3>
+                            <span class="bg-netserve-1 text-white text-xs px-3 py-1 rounded-full">MOST POPULAR</span>
+                        </div>
+                        <p class="text-neutral-600 mb-6">Ideal for streaming and gaming</p>
+                        <div class="flex items-end mb-6">
+                            <span class="text-4xl font-bold">$49</span>
+                            <span class="text-neutral-600 ml-1">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>200 Mbps download</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>50 Mbps upload</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>No data caps</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>Free modem included</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-netserve-1 hover:bg-netserve-5 text-white py-3 rounded-lg font-semibold transition">
+                            Select Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-200 hover:shadow-xl transition">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                        <p class="text-neutral-600 mb-6">For power users and large families</p>
+                        <div class="flex items-end mb-6">
+                            <span class="text-4xl font-bold">$79</span>
+                            <span class="text-neutral-600 ml-1">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>1 Gbps download</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>200 Mbps upload</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>No data caps</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>Free modem & router</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check" class="text-green-500 w-5 h-5 mr-2"></i>
+                                <span>Priority support</span>
+                            </li>
+                        </ul>
+                        <button
+                            class="w-full bg-netserve-1 hover:bg-netserve-5 text-white py-3 rounded-lg font-semibold transition">
+                            Select Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-neutral-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose NetServe</h2>
+                <p class="text-neutral-600 max-w-2xl mx-auto">We provide the best internet experience for your home</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-netserve-1/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="text-netserve-1 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Blazing Fast Speeds</h3>
+                    <p class="text-neutral-600">Our fiber-optic network delivers speeds up to 1Gbps for seamless
+                        streaming and gaming.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-netserve-1/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="shield" class="text-netserve-1 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Reliable Connection</h3>
+                    <p class="text-neutral-600">99.9% uptime guarantee means you're always connected when you need to
+                        be.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="w-16 h-16 bg-netserve-1/10 rounded-full flex items-center justify-center mb-6">
+                        <i data-lucide="headphones" class="text-netserve-1 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+                    <p class="text-neutral-600">Our expert support team is available anytime to help with any issues.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section id="coverage" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Check If NetServe Is Available In Your Area</h2>
+                <p class="text-neutral-600 text-lg mb-8">
+                    We're expanding our coverage area every day. Enter your address to check if our high-speed internet
+                    service is available at your location.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <input type="text" placeholder="Enter your full address"
+                        class="flex-grow px-6 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-netserve-1">
+                    <button
+                        class="bg-netserve-1 hover:bg-netserve-5 text-white px-8 py-3 rounded-lg font-semibold whitespace-nowrap">
+                        Check Availability
+                    </button>
+                </div>
+
+                <p class="text-sm text-neutral-500">
+                    Already a customer? <a href="#" class="text-netserve-1 hover:underline">Sign in to your account</a>.
+                </p>
+            </div>
+
+            <hr class="my-12 border-neutral-200">
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-6">Our Coverage Map</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="map" class="text-netserve-1 w-6 h-6"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold mb-2">Interactive Map</h4>
+                                <p class="text-neutral-600">Enter your address above to see if NetServe is available in
+                                    your area.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="alert-circle" class="text-netserve-1 w-6 h-6"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold mb-2">Availability Status</h4>
+                                <ul class="space-y-2 text-neutral-600">
+                                    <li class="flex items-center">
+                                        <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                                        Available
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                                        Coming Soon
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
+                                        Not Available
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-8 text-neutral-600">
+                        Our network is constantly growing. If we're not in your area yet, <a href="#"
+                            class="text-netserve-1 hover:underline">register for updates</a>.
+                    </p>
+                </div>
+
+                <div class="order-1 md:order-2">
+                    <!-- Map Placeholder - Replace with your actual map implementation -->
+                    <div
+                        class="bg-neutral-100 rounded-xl shadow-md overflow-hidden h-96 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <i data-lucide="map" class="w-16 h-16 text-netserve-1 mx-auto mb-4"></i>
+                            <p class="text-neutral-600">Map will appear here when address is entered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-netserve-1 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+                <p class="text-netserve-4 max-w-2xl mx-auto">Hear from our satisfied customers</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">JD</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">John D.</h4>
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"NetServe has transformed my home internet experience. The speeds are incredible and the
+                        connection is rock solid."</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">SM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah M.</h4>
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"As someone who works from home, I need reliable internet. NetServe has never let me down in 2
+                        years of service."</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                            <span class="text-xl font-bold">RT</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Robert T.</h4>
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"The customer service is outstanding. When I had an issue, they had a technician at my house the
+                        same day!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-neutral-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-neutral-600 max-w-2xl mx-auto">Have questions? We're here to help</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 font-medium">Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-netserve-1">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-medium">Email</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-netserve-1">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5"
+                                class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-netserve-1"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="bg-netserve-1 hover:bg-netserve-5 text-white px-6 py-3 rounded-lg font-semibold transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i data-lucide="mail" class="text-netserve-1 w-6 h-6 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-neutral-600">support@netserve.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="phone" class="text-netserve-1 w-6 h-6 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p class="text-neutral-600">1-800-NET-SERVE</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="map-pin" class="text-netserve-1 w-6 h-6 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Office</h4>
+                                <p class="text-neutral-600">123 Internet Way<br>Tech City, TC 12345</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h4 class="font-bold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:bg-netserve-1 hover:text-white transition">
+                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:bg-netserve-1 hover:text-white transition">
+                                <i data-lucide="twitter" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:bg-netserve-1 hover:text-white transition">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:bg-netserve-1 hover:text-white transition">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-netserve-9 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <img src="./src/assets/img/logolandscape.png" alt="NetServe Logo" class="h-10 mb-4">
+                    <p class="text-neutral-400">Providing lightning-fast internet to homes across the country.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-neutral-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#plans" class="text-neutral-400 hover:text-white transition">Plans</a></li>
+                        <li><a href="#features" class="text-neutral-400 hover:text-white transition">Features</a></li>
+                        <li><a href="#coverage" class="text-neutral-400 hover:text-white transition">Coverage</a></li>
+                        <li><a href="#contact" class="text-neutral-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-neutral-400 hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="text-neutral-400 hover:text-white transition">Service Status</a></li>
+                        <li><a href="#" class="text-neutral-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-neutral-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-neutral-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="text-neutral-400 mb-4">Subscribe to get updates and special offers.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="flex-grow px-4 py-2 bg-white/10 border border-white/20 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-netserve-1">
+                        <button class="bg-netserve-1 hover:bg-netserve-5 px-4 py-2 rounded-r-lg transition">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center text-neutral-400">
+                <p>© 2025 NetServe HomeLink. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>
