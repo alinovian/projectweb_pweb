@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>NetServe HomeLink</title>
+    <link rel="icon" href="./src/assets/img/Logo NetServe HomeLink.jpg" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 👇 css code file 👇 -->
+    <link rel="stylesheet" href="./src/style/global.css" />
+</head>
+
+<body>
+    <!-- Navigasi Bar -->
+    <!-- <nav>
+        <div class="container mx-auto flex items-center justify-between py-5">
+            <a href="" class="w-44 flex-shrink-0"><img src="./src/assets/img/logolandscape.png"</a>
+            <div class="space-x-6 font-semibold">
+                <a class="hover:text-cyan-700" href="">Plans</a>
+                <a class="hover:text-red-500" href="">Features</a>
+                <a class="hover:text-red-500" href="">Coverage</a>
+                <a class="hover:text-red-500" href="">Contact</a>
+            </div>
+            <button class="bg">
+                Get Started
+            </button>
+        </div>
+    </nav> -->
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md py-4 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="ml-2 text-xl font-bold text-blue-800">NetFiber</span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-blue-800 font-medium hover:text-blue-600">Home</a>
+                <a href="#" class="text-gray-600 font-medium hover:text-blue-600">Plans</a>
+                <a href="#" class="text-gray-600 font-medium hover:text-blue-600">Coverage</a>
+                <a href="#" class="text-gray-600 font-medium hover:text-blue-600">Support</a>
+                <a href="#" class="text-gray-600 font-medium hover:text-blue-600">About</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation (hidden by default) -->
+        <div class="md:hidden hidden mt-4 pb-4">
+            <a href="#" class="block py-2 px-4 text-blue-800 font-medium">Home</a>
+            <a href="#" class="block py-2 px-4 text-gray-600 font-medium">Plans</a>
+            <a href="#" class="block py-2 px-4 text-gray-600 font-medium">Coverage</a>
+            <a href="#" class="block py-2 px-4 text-gray-600 font-medium">Support</a>
+            <a href="#" class="block py-2 px-4 text-gray-600 font-medium">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <!-- Badge -->
+            <div class="inline-block bg-yellow-400 text-blue-900 font-bold px-4 py-2 rounded-full mb-6">
+                #1 Rated Internet Service Provider
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+                Lightning-Fast<br>
+                <span class="text-yellow-300">Internet For Your Home</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto">
+                Experience blazing speeds up to 1Gbps with our fiber-optic network. Stream, game, and work without
+                interruption.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+                <button
+                    class="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300">
+                    Check Availability
+                </button>
+                <button
+                    class="bg-transparent hover:bg-blue-700 text-white font-bold py-3 px-8 border-2 border-white rounded-full transition duration-300">
+                    View Plans
+                </button>
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 text-lg">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    No contracts
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Free installation
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    24/7 support
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👇 javascript code file 👇 -->
+    <script src="./src/js/index.js"></script>
+</body>
+
+</html>
