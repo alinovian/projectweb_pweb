@@ -8,9 +8,12 @@
 
     <link rel="icon" href="./src/assets/img/logopotraitround.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <script>
         tailwind.config = {
@@ -278,7 +281,8 @@
                     <p class="text-gray-600 mb-2">
                         <span class="font-bold text-netserve-1">100 Mbps</span> Internet
                     </p>
-                    <p class="text-gray-600 mb-6">Ideal untuk banyak pengguna dengan kebutuhan dan pengguanaan internet sedang</p>
+                    <p class="text-gray-600 mb-6">Ideal untuk banyak pengguna dengan kebutuhan dan pengguanaan internet
+                        sedang</p>
 
                     <div class="space-y-3 mb-8 flex-grow">
                         <div class="flex items-start">
@@ -529,7 +533,7 @@
                         </div>
                         <div class="aspect-square bg-gray-100 relative">
                             <!-- Placeholder for map -->
-                            <div class="absolute inset-0 bg-blue-50 p-4">
+                            <div id="map" class="absolute inset-0 rounded-lg">
                                 <div
                                     class="h-full w-full border-2 border-dashed border-blue-200 rounded-lg flex items-center justify-center">
                                     <div class="text-center p-6">
@@ -1061,6 +1065,17 @@
                 }
             });
 
+            const map = L.map('map').setView([-6.200000, 106.816666], 13); // Contoh Jakarta
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            var marker = L.marker([-7.403904, 109.347125]).addTo(map)
+                .bindPopup('NetServe Office')
+                .openPopup();
+
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
@@ -1081,7 +1096,7 @@
 
         });
     </script>
-    
+
 </body>
 
 </html>
