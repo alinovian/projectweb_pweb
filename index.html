@@ -70,6 +70,20 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
+
+        /* Pastikan navbar selalu di atas */
+        nav {
+            z-index: 1000 !important;
+            /* Tingkatkan z-index navbar */
+        }
+
+        /* Atur z-index untuk peta Leaflet */
+        .leaflet-top,
+        .leaflet-bottom,
+        .leaflet-control {
+            z-index: 99 !important;
+            /* Lebih rendah dari navbar */
+        }
     </style>
 </head>
 
@@ -1065,16 +1079,126 @@
                 }
             });
 
-            const map = L.map('map').setView([-6.200000, 106.816666], 13); // Contoh Jakarta
+            const map = L.map('map', {
+                center: [-7.397451, 109.384], // Koordinat NetServe Office
+                zoom: 15,
+                zoomControl: true
+            });
 
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-            var marker = L.marker([-7.403904, 109.347125]).addTo(map)
-                .bindPopup('NetServe Office')
-                .openPopup();
+            // Marker utama
+            L.marker([-7.397451, 109.384])
+                .addTo(map)
+                .bindPopup("NetServe Office");
+            // .openPopup();
+
+            // Tambahan marker status (opsional)
+            L.circleMarker([-7.397302, 109.386063], {
+                color: '#004AAD',
+                fill: true,
+                fillColor: '#004AAD',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tersedia");
+
+            L.circleMarker([-7.397855, 109.387769], {
+                color: '#004AAD',
+                fill: true,
+                fillColor: '#004AAD',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tersedia");
+
+            L.circleMarker([-7.398781, 109.385751], {
+                color: '#004AAD',
+                fill: true,
+                fillColor: '#004AAD',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tersedia");
+
+            L.circleMarker([-7.396696, 109.388375], {
+                color: '#004AAD',
+                fill: true,
+                fillColor: '#004AAD',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tersedia");
+
+            L.circleMarker([-7.396185, 109.386545], {
+                color: '#004AAD',
+                fill: true,
+                fillColor: '#004AAD',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tersedia");
+
+            L.circleMarker([-7.392419, 109.378488], {
+                color: '#38bdf8',
+                fill: true,
+                fillColor: '#38bdf8',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Segera Hadir");
+
+            L.circleMarker([-7.405846, 109.383842], {
+                color: '#38bdf8',
+                fill: true,
+                fillColor: '#38bdf8',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Segera Hadir");
+
+            L.circleMarker([-7.400388, 109.391727], {
+                color: '#38bdf8',
+                fill: true,
+                fillColor: '#38bdf8',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Segera Hadir");
+
+            L.circleMarker([-7.404494, 109.388916], {
+                color: '#38bdf8',
+                fill: true,
+                fillColor: '#38bdf8',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Segera Hadir");
+
+            L.circleMarker([-7.394812, 109.38175], {
+                color: '#38bdf8',
+                fill: true,
+                fillColor: '#38bdf8',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Segera Hadir");
+
+            L.circleMarker([-7.390721, 109.374593], {
+                color: '#d1d5dc',
+                fill: true,
+                fillColor: '#d1d5dc',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tidak Tersedia");
+
+            L.circleMarker([-7.407537, 109.384123], {
+                color: '#d1d5dc',
+                fill: true,
+                fillColor: '#d1d5dc',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tidak Tersedia");
+
+            L.circleMarker([-7.403122, 109.396341], {
+                color: '#d1d5dc',
+                fill: true,
+                fillColor: '#d1d5dc',
+                fillOpacity: 100,
+                radius: 5
+            }).addTo(map).bindPopup("Tidak Tersedia");
 
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
