@@ -1,1 +1,29 @@
-@import "tailwindcss";
+html {
+    scroll-behavior: smooth;
+}
+
+.spark-gradient {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+}
+
+.glow {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Pastikan navbar selalu di atas */
+nav {
+    z-index: 1000 !important;
+    /* Tingkatkan z-index navbar */
+}
+
+/* Atur z-index untuk peta Leaflet */
+.leaflet-top,
+.leaflet-bottom,
+.leaflet-control {
+    z-index: 99 !important;
+    /* Lebih rendah dari navbar */
+}
